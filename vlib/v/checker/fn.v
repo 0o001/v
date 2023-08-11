@@ -6,6 +6,14 @@ import v.util
 import v.token
 
 fn (mut c Checker) fn_decl(mut node ast.FnDecl) {
+	/*
+	if c.doing_line_info > 0 {
+		println('FFFF')
+		x := (node.stmts[1]) as ast.ExprStmt
+		call := x.expr as ast.CallExpr
+		println(call)
+	}
+	*/
 	$if trace_post_process_generic_fns_types ? {
 		if node.generic_names.len > 0 {
 			eprintln('>>> post processing node.name: ${node.name:-30} | ${node.generic_names} <=> ${c.table.cur_concrete_types}')
